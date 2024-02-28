@@ -1,25 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import DataConsumer from './useCon/DataConsumer';
-import { ProviderContext } from './useCon/providerContext';
-import DataProvider from './useCon/ContextDemo';
-import { ColorProvider } from './colorCont/ColorProvider';
-import Panel from './colorCont/Panel';
-import PanelButton from './colorCont/PanelButton';
+import { ThemeProvider } from './themeCont/ThemeProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <DataProvider/> */}
-    <ColorProvider.Provider value = {{color:'white'}}>
-      <Panel>
-        <PanelButton text = "submit"></PanelButton>
-        <PanelButton text ="clear"></PanelButton>
-      </Panel>
-    </ColorProvider.Provider>
+    <ThemeProvider/>
   </React.StrictMode>
 );
 
