@@ -6,7 +6,7 @@ import Header from "./Header";
 const LayOut = ({user}) => {
   return (
     <>
-      <Header user={user}/>
+     <Header user={user}/>
       <Outlet /> 
       <Footer/>
     </>

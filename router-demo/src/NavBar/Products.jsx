@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 const Products = () => {
   let [product, setProduct] = useState([]);
   let [displayProducts, setDisplayProducts] = useState([]);
+  let [info, setInfo] = useState();
 
   const Fetch = async () => {
     try {
@@ -22,9 +23,18 @@ const Products = () => {
     if (value === "default") {
       setDisplayProducts(product);
     } else {
-      const filteredProducts = product.filter((p) => p.category.includes(value));
+      const filteredProducts = product.filter((p) =>
+        p.category.includes(value)
+      );
       setDisplayProducts(filteredProducts);
     }
+  };
+
+  const handleChange = (e) => {
+    const searchProducts = product.filter((p) =>
+      p.category.toLowerCase().includes(e.toLowerCase())
+    );
+    setDisplayProducts(searchProducts);
   };
 
   useEffect(() => {
@@ -33,7 +43,7 @@ const Products = () => {
 
   return (
     <>
-    Select Category:
+      Select Category:
       <select id="sort" onChange={(e) => handleFilter(e)}>
         <option value="default">All products</option>
         <option value="electronics">Electronics</option>
@@ -41,10 +51,11 @@ const Products = () => {
         <option value="men's clothing">Men's Clothing</option>
         <option value="women's clothing">Women's Clothing</option>
       </select>
-
+      Search:
+      <input type="text" onChange={(e) => handleChange(e.target.value)} />
       {displayProducts.length > 0 &&
         displayProducts.map((p) => (
-          <ProductCard style={{ display:"flex", flexDirection:"row" }}
+          <ProductCard
             image={p.image}
             price={p.price}
             title={p.title}
