@@ -4,7 +4,6 @@ import ProductCard from "./ProductCard";
 const Products = () => {
   let [product, setProduct] = useState([]);
   let [displayProducts, setDisplayProducts] = useState([]);
-  let [info, setInfo] = useState();
 
   const Fetch = async () => {
     try {
@@ -32,7 +31,9 @@ const Products = () => {
 
   const handleChange = (e) => {
     const searchProducts = product.filter((p) =>
-      p.category.toLowerCase().includes(e.toLowerCase())
+      p.category.toLowerCase().includes(e.toLowerCase()) ||
+      p.title.toLowerCase().includes(e.toLowerCase()) ||
+      p.description.toLowerCase().includes(e.toLowerCase())
     );
     setDisplayProducts(searchProducts);
   };
