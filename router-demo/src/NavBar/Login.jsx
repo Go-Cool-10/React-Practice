@@ -30,7 +30,6 @@ const Login = ({ handleLogin }) => {
             name="username"
             value={loginUser.username}
             onChange={(e) => handleChange(e)}
-            required
           />
         </div>
         <div>
@@ -40,7 +39,7 @@ const Login = ({ handleLogin }) => {
             name="password"
             value={loginUser.password}
             onChange={(e) => handleChange(e)}
-            required
+            
           />
         </div>
         <button type="submit">Login</button>

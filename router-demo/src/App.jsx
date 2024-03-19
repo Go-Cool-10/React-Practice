@@ -1,14 +1,15 @@
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import "./App.css";
 import Home from "./NavBar/Home";
 import Services from "./NavBar/Services";
 import AboutUs from "./NavBar/AboutUs";
 import Login from "./NavBar/Login";
 import LogOut from "./NavBar/LogOut";
-import Products from "./NavBar/Products";
-import ProductID from "./NavBar/ProductID";
+import Products from "./Products";
+import ProductID from "./ProductID";
 import LayOut from "./NavBar/LayOut";
+import Cart from "./NavBar/Cart";
+
 
 function App() {
   let services = ["Service A", "Service B", "Service C"];
@@ -42,6 +43,7 @@ function App() {
             />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:productid" element={<ProductID />} />
+            <Route path="/cart" element={<Cart/>} />
           </Route>
         </Routes>
       </BrowserRouter>

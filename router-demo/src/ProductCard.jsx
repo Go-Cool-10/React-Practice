@@ -9,7 +9,7 @@ function ProductCard({ image, price, title, id }) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price}</Card.Text>
-        <Link to={`/products/${id}`}><Button variant="primary">Go somewhere</Button></Link>
+        <Link to={`/products/${id}`}><Button variant="primary">Visit</Button></Link>
       </Card.Body>
     </Card>
   );
